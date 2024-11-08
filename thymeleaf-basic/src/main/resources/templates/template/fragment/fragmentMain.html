@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<h1>부분 포함(Fragment Inclusion)</h1>
+<h2>부분 포함 insert(Fragment Inclusion with Insert)</h2>
+<div th:insert="~{template/fragment/footer :: copy}"></div>
+
+<h2>부분 포함 replace(Fragment Inclusion with Replace)</h2>
+<div th:replace="~{template/fragment/footer :: copy}"></div>
+
+<h2>부분 포함 단순 표현식(Fragment Inclusion with Simple Expression)</h2>
+<div th:replace="template/fragment/footer :: copy"></div>
+
+<h1>파라미터 사용(Using Parameters)</h1>
+<div th:replace="~{template/fragment/footer :: copyParam ('data1', 'data2')}"></div>
+
+</body>
+</html>
