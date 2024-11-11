@@ -47,6 +47,16 @@
             </div>
         </div>
 
+        <!-- multi checkbox -->
+        <div>
+            <div>등록 지역(Area)</div>
+            <div th:each="region : ${regions}" class="form-check form-check-inline">
+                <input type="checkbox" th:field="*{regions}" th:value="${region.key}" class="form-check-input">
+                <label th:for="${#ids.prev('regions')}"
+                       th:text="${region.value}" class="form-check-label">SEOUL</label>
+            </div>
+        </div>
+
 
         <div class="row">
             <div class="col">
@@ -56,7 +66,8 @@
                 <button class="w-100 btn btn-secondary btn-lg"
                         onclick="location.href='item.html'"
                         th:onclick="|location.href='@{/form/items/{itemId}(itemId=${item.id})}'|"
-                        type="button">취소(Cancel)</button>
+                        type="button">취소(Cancel)
+                </button>
             </div>
         </div>
 
