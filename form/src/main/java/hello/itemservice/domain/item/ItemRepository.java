@@ -27,11 +27,15 @@ public class ItemRepository {
         return new ArrayList<>(store.values());
     }
 
-    public void update(Long itemId, Item updateParam) {
+    public void  update(Long itemId, Item updateParam) {
         Item findItem = findById(itemId);
         findItem.setItemName(updateParam.getItemName());
         findItem.setPrice(updateParam.getPrice());
         findItem.setQuantity(updateParam.getQuantity());
+        findItem.setOpen(updateParam.getOpen());
+        findItem.setRegions(updateParam.getRegions());
+        findItem.setItemType(updateParam.getItemType());
+        findItem.setDeliveryCode(updateParam.getDeliveryCode());
     }
 
     public void clearStore() {
