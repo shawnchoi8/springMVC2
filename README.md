@@ -1,4 +1,4 @@
 1. thymeleaf-basic: Thymeleaf - Basic funtionalities
-2. form: Thymeleaf - Spring and Thymeleaf Integration, and Form
-3. message: 
-4. validation:
+2. form: Thymeleaf - Spring and Thymeleaf Integration, and Form (checkbox, radio button, select box)
+3. message: Message and Internationalization
+4. validation
