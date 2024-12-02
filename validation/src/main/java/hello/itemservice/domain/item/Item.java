@@ -12,7 +12,7 @@ public class Item {
 
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "Whitespace is not allowed")
     private String itemName;
 
     @NotNull
