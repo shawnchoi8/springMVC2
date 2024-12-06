@@ -19,7 +19,7 @@ public class ValidationItemApiController {
 
         log.info("API Controller called");
 
-        if(bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors()) {
             log.info("Validation errors occurred: errors={}", bindingResult);
             return bindingResult.getAllErrors();
         }
