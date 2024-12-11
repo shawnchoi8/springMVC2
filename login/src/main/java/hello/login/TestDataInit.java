@@ -17,7 +17,7 @@ public class TestDataInit {
     private final MemberRepository memberRepository;
 
     /**
-     * 테스트용 데이터 추가
+     * Data for test
      */
     @PostConstruct
     public void init() {
@@ -29,8 +29,5 @@ public class TestDataInit {
         member.setPassword("test!");
         member.setName("tester");
         memberRepository.save(member);
-
-
     }
-
 }
