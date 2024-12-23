@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -59,7 +60,7 @@ public class HomeController {
         return "loginHome";
     }
 
-    @GetMapping("/")
+//    @GetMapping("/")
     public String homeLoginV3(HttpServletRequest request, Model model) {
 
         HttpSession session = request.getSession(false);
@@ -68,6 +69,20 @@ public class HomeController {
         }
 
         Member loginMember = (Member)session.getAttribute(SessionConst.LOGIN_MEMBER);
+
+        //If there is no user data in the session, redirect to the home
+        if (loginMember == null) {
+            return "home";
+        }
+
+        //If the session is active, redirect to the login page
+        model.addAttribute("member", loginMember);
+        return "loginHome";
+    }
+
+    @GetMapping("/")
+    public String homeLoginV3Spring(
+            @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Member loginMember, Model model) {
 
         //If there is no user data in the session, redirect to the home
         if (loginMember == null) {
