@@ -23,12 +23,12 @@ public class HomeController {
     private final MemberRepository memberRepository;
     private final SessionManager sessionManager;
 
-//    @GetMapping("/")
+    //    @GetMapping("/")
     public String home() {
         return "home";
     }
 
-//    @GetMapping("/")
+    //    @GetMapping("/")
     public String homeLogin(@CookieValue(name = "memberId", required = false) Long memberId, Model model) {
 
         if (memberId == null) {
@@ -45,11 +45,11 @@ public class HomeController {
         return "loginHome";
     }
 
-//    @GetMapping("/")
+    //    @GetMapping("/")
     public String homeLoginV2(HttpServletRequest request, Model model) {
 
         //세션 관리자에 저장된 회원 정보 조회
-        Member member = (Member)sessionManager.getSession(request);
+        Member member = (Member) sessionManager.getSession(request);
 
         //login
         if (member == null) {
@@ -60,7 +60,7 @@ public class HomeController {
         return "loginHome";
     }
 
-//    @GetMapping("/")
+    //    @GetMapping("/")
     public String homeLoginV3(HttpServletRequest request, Model model) {
 
         HttpSession session = request.getSession(false);
@@ -68,7 +68,7 @@ public class HomeController {
             return "home";
         }
 
-        Member loginMember = (Member)session.getAttribute(SessionConst.LOGIN_MEMBER);
+        Member loginMember = (Member) session.getAttribute(SessionConst.LOGIN_MEMBER);
 
         //If there is no user data in the session, redirect to the home
         if (loginMember == null) {
