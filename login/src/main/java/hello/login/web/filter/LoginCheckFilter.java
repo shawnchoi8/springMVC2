@@ -30,7 +30,6 @@ public class LoginCheckFilter implements Filter {
                 log.info("Authentication logic executed {}", requestURI);
                 HttpSession session = httpRequest.getSession(false);
                 if (session == null || session.getAttribute(SessionConst.LOGIN_MEMBER) == null) {
-
                     log.info("Unauthenticated user request {}", requestURI);
                     //redirect to Login
                     httpResponse.sendRedirect("/login?redirectURL=" + requestURI);
