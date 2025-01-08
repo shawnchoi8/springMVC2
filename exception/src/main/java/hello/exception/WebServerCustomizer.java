@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 //springboot 가 제공하는 기본적인 controller 이용하기 위해서 주석처리함 (BasicErrorController)
-@Component
+//@Component
 public class WebServerCustomizer implements WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> {
 
     @Override
