@@ -15,7 +15,10 @@ public class ApiExceptionController {
     public MemberDto getMember(@PathVariable("id") String id) {
 
         if (id.equals("ex")) {
-            throw new RuntimeException("wrong user");
+            throw new RuntimeException("Invalid User");
+        }
+        if (id.equals("bad")) {
+            throw new IllegalArgumentException("Invalid Input");
         }
 
         return new MemberDto(id, "hello " + id);
