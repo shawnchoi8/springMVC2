@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="py-5 text-center">
+        <h2>Product Inquiry</h2>
+    </div>
+
+    Product Name: <span th:text="${item.itemName}">product name</span><br/>
+    Attached File: <a th:if="${item.attachFile}" th:href="|/attach/${item.id}|" th:text="${item.getAttachFile().getUploadFileName()}"/><br/>
+    <img th:each="imageFile : ${item.imageFiles}" th:src="|/images/${imageFile.getStoreFileName()}|" width="300" height="300"/>
+
+</div> <!-- /container -->
+</body>
+</html> ```
